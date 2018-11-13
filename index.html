@@ -6,34 +6,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>SWAPI</title>
+  <link rel="stylesheet" href="https://bootswatch.com/4/solar/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <!-- MOUNTING POINT -->
-  <div id="app">
-    <div class="categories">
-      categories go here
+  <div class="container-fluid">
+    <!-- MOUNTING POINT -->
+    <div id="app">
+      <div class="row">
+        <div class="categories col-12 d-flex">
+          <div class="characters" id="characters"><button type="button" class="btn btn-info" onclick="app.controllers.charactersController.getCharacters()">Characters</button></div>
+          <div class="star-ships" id="star-ships"><button type="button" class="btn btn-info" onclick="app.controllers.starshipsController.getStarships()">Star
+              ships</button></div>
+          <div class="planets" id="planets"><button type="button" class="btn btn-info">Planets</button></div>
+        </div>
+      </div>
+      <div class="active-category">
+
+        <div id="category-title" class="category-title">Active Category</div>
+        <div id="category-actions" class="category-actions">
+          prev and next buttons here
+        </div>
+        <div id="category-data" class="category-data">
+        </div>
+      </div>
+
     </div>
 
-    <div class="active-category">
-
-      <div id="category-title" class="category-title">Active Category</div>
-      <div id="category-description" class="category-description">Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Atque optio unde nisi
-        architecto ipsam quam blanditiis cupiditate veniam, officiis earum consequuntur iusto ipsum maxime quisquam
-        inventore provident saepe fugit est.</div>
-      <div id="category-actions" class="category-actions">
-        prev and next buttons here
-      </div>
-      <div id="category-data" class="category-data">
-      </div>
-    </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+    <script src="app/main.js" type="module"></script>
   </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
-  <script src="app/main.js" type="module"></script>
-
 </body>
 
 </html>

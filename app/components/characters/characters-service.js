@@ -3,6 +3,7 @@ let charactersAPI = axios.create({
   baseURL: "https://swapi.co/api/people/"
 })
 
+let _starships = []
 let _characters = []
 let nextUrl = ""
 let prevUrl = ""
@@ -24,12 +25,13 @@ export default class CharactersService {
     return prevUrl
   }
 
-  getCharacters(success, fail, url = "") {
+  getCharacters(success, fail, url = '') {
     charactersAPI.get(url)
       .then(res => {
         _characters = res.data.results
         nextUrl = res.data.next
         prevUrl = res.data.previous
+        console.log(res.data.results)
         success()
       })
       .catch(error => {
@@ -37,5 +39,4 @@ export default class CharactersService {
         console.log(error)
       })
   }
-
 }
